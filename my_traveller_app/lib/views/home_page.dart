@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_traveller_app/views/login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -34,6 +35,11 @@ class HomePage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(primary: Colors.white),
                         onPressed: () {
                           print('giriş yap butonu');
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginPage()));
                         },
                         child: Text(
                           'Giriş yap',
