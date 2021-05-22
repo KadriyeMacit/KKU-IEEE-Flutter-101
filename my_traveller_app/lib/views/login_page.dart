@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_traveller_app/style.dart';
 
+import 'menu_page.dart';
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
 
@@ -12,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  bool isVisible = false;
+  bool isVisible = true;
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +140,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Colors.white),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MenuPage()));
+                  },
                   child: Text('Giriş yap',
                       style: TextStyle(
                         color: Colors.black,
