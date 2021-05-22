@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_traveller_app/style.dart';
 import 'package:my_traveller_app/views/login_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,7 +10,9 @@ class HomePage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: mainColor,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'Gezi Rehberim',
           style: TextStyle(color: Colors.black),
@@ -20,43 +23,53 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.only(
               right: 20.0, left: 20.0, top: 50, bottom: 100),
           child: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Image.asset(
-                  'assets/images/travel.jpg',
-                  height: size.height * .5,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(primary: Colors.white),
-                        onPressed: () {
-                          print('giriş yap butonu');
+            child: SingleChildScrollView(
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      'assets/images/home.jpg',
+                      height: size.height * .5,
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * .05,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white),
+                          onPressed: () {
+                            print('giriş yap butonu');
 
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginPage()));
-                        },
-                        child: Text(
-                          'Giriş yap',
-                          style: TextStyle(color: Colors.black),
-                        )),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(primary: Colors.white),
-                        onPressed: () {
-                          print('kayıt ol butonu');
-                        },
-                        child: Text(
-                          'Kayıt ol',
-                          style: TextStyle(color: Colors.black),
-                        ))
-                  ],
-                ),
-              ],
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()));
+                          },
+                          child: Text(
+                            'Giriş yap',
+                            style: TextStyle(color: Colors.black),
+                          )),
+                      ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white),
+                          onPressed: () {
+                            print('kayıt ol butonu');
+                          },
+                          child: Text(
+                            'Kayıt ol',
+                            style: TextStyle(color: Colors.black),
+                          ))
+                    ],
+                  ),
+                ],
+              ),
             ),
           )),
     );
