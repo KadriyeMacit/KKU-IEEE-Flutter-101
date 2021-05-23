@@ -3,6 +3,7 @@ import 'package:my_traveller_app/views/favorite_page.dart';
 import 'package:my_traveller_app/views/home_page.dart';
 import 'package:my_traveller_app/views/launch_page.dart';
 import 'package:my_traveller_app/views/profile_page.dart';
+import 'package:my_traveller_app/views/settings_page.dart';
 
 class MenuPage extends StatefulWidget {
   MenuPage({Key key}) : super(key: key);
@@ -57,6 +58,11 @@ class _MenuPageState extends State<MenuPage> {
               ListTile(
                 title: Text('Ayarlar'),
                 leading: Icon(Icons.settings),
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SettingsPage(),
+                    )),
               ),
               Divider(),
               ListTile(
