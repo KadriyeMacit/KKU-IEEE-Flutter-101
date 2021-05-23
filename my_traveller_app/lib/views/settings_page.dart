@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_traveller_app/style.dart';
+import 'package:my_traveller_app/theme/theme_mode_manager.dart';
+import 'package:thememode_selector/thememode_selector.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({Key key}) : super(key: key);
@@ -15,7 +17,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: mainColor,
+        // backgroundColor: mainColor,
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Text('Ayarlar'),
@@ -51,6 +53,18 @@ class _SettingsPageState extends State<SettingsPage> {
                         setState(() {
                           isVoice = value;
                         });
+                      },
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Tema modu'),
+                    ThemeModeSelector(
+                      height: 25,
+                      onChanged: (mode) {
+                        ThemeModeManager.of(context).themeMode = mode;
                       },
                     )
                   ],
