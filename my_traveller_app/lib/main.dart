@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_traveller_app/views/home_page.dart';
+import 'package:my_traveller_app/views/launch_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: LaunchPage(),
     );
   }
 }

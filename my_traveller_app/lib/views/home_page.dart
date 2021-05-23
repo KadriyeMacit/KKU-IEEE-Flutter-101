@@ -1,82 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:my_traveller_app/style.dart';
-import 'package:my_traveller_app/views/login_page.dart';
-import 'package:my_traveller_app/views/register_page.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
 
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return Scaffold(
-      backgroundColor: mainColor,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Gezi Rehberim',
-          style: TextStyle(color: Colors.black),
+      body: Center(
+        child: Container(
+          child: Text('Anasayfa'),
         ),
-        backgroundColor: Colors.white,
       ),
-      body: Padding(
-          padding: const EdgeInsets.only(
-              right: 20.0, left: 20.0, top: 50, bottom: 100),
-          child: SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      'assets/images/home.jpg',
-                      height: size.height * .5,
-                    ),
-                  ),
-                  SizedBox(
-                    height: size.height * .05,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      ElevatedButton(
-                          style:
-                              ElevatedButton.styleFrom(primary: Colors.white),
-                          onPressed: () {
-                            print('giriş yap butonu');
-
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
-                          },
-                          child: Text(
-                            'Giriş yap',
-                            style: TextStyle(color: Colors.black),
-                          )),
-                      ElevatedButton(
-                          style:
-                              ElevatedButton.styleFrom(primary: Colors.white),
-                          onPressed: () {
-                            print('kayıt ol butonu');
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => RegisterPage()));
-                          },
-                          child: Text(
-                            'Kayıt ol',
-                            style: TextStyle(color: Colors.black),
-                          ))
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          )),
     );
   }
 }

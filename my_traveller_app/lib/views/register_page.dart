@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_traveller_app/style.dart';
-import 'package:my_traveller_app/views/home_page.dart';
+import 'package:my_traveller_app/views/launch_page.dart';
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key key}) : super(key: key);
@@ -277,7 +277,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   style: ElevatedButton.styleFrom(primary: Colors.white),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
+                        MaterialPageRoute(builder: (context) => LaunchPage()));
                   },
                   child: Text('Kayıt ol',
                       style: TextStyle(
