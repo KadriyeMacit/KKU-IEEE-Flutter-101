@@ -20,7 +20,11 @@ class _SettingsPageState extends State<SettingsPage> {
         // backgroundColor: mainColor,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Text('Ayarlar'),
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            'Ayarlar',
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: Container(
           child: Padding(
