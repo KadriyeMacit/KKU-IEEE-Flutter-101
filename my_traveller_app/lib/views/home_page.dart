@@ -20,6 +20,14 @@ class _HomePageState extends State<HomePage> {
 
   int _current = 0;
 
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+    return result;
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -27,7 +35,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         body: Column(
       children: [
-        Text('Ülkeler'),
+        SizedBox(
+          height: 20,
+        ),
         CarouselSlider(
           height: size.height * .25,
           initialPage: 0,
@@ -57,6 +67,22 @@ class _HomePageState extends State<HomePage> {
             });
           }).toList(),
         ),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: map<Widget>(imgList, (index, url) {
+            return Container(
+              width: 10,
+              height: 10,
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+              decoration: BoxDecoration(
+                  color: _current == index ? Colors.orange : Colors.grey,
+                  shape: BoxShape.circle),
+            );
+          }),
+        )
       ],
     ));
   }
