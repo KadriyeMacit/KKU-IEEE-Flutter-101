@@ -41,21 +41,20 @@ class _HomePageState extends State<HomePage> {
             height: 20,
           ),
           CarouselSlider(
-            height: size.height * .25,
-            initialPage: 0,
-            enlargeCenterPage: true,
-            autoPlay: true,
-            reverse: false,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: Duration(seconds: 2),
-            autoPlayInterval: Duration(seconds: 2),
-            scrollDirection: Axis.horizontal,
-            pauseAutoPlayOnTouch: Duration(seconds: 10),
-            onPageChanged: (index) {
-              setState(() {
-                _current = index;
-              });
-            },
+            options: CarouselOptions(
+              height: size.height * .25,
+              aspectRatio: 16 / 9,
+              viewportFraction: 0.8,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+            ),
             items: imgList.map((imgAsset) {
               return Builder(builder: (BuildContext context) {
                 return Container(

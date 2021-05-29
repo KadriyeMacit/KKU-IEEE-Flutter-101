@@ -79,8 +79,7 @@ class _MenuPageState extends State<MenuPage> {
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Anasayfa'),
-            BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favoriler'),
-            //BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Ekle'),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Ekle'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
           ],
           currentIndex: _selectedIndex,
@@ -90,7 +89,7 @@ class _MenuPageState extends State<MenuPage> {
         body: _selectedIndex == 0
             ? HomePage()
             : _selectedIndex == 1
-                ? FavoritePage()
+                ? AddPage()
                 : ProfilePage());
   }
 }
