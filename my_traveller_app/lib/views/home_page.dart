@@ -33,57 +33,117 @@ class _HomePageState extends State<HomePage> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-        body: Column(
-      children: [
-        SizedBox(
-          height: 20,
-        ),
-        CarouselSlider(
-          height: size.height * .25,
-          initialPage: 0,
-          enlargeCenterPage: true,
-          autoPlay: true,
-          reverse: false,
-          enableInfiniteScroll: true,
-          autoPlayAnimationDuration: Duration(seconds: 2),
-          autoPlayInterval: Duration(seconds: 2),
-          scrollDirection: Axis.horizontal,
-          pauseAutoPlayOnTouch: Duration(seconds: 10),
-          onPageChanged: (index) {
-            setState(() {
-              _current = index;
-            });
-          },
-          items: imgList.map((imgAsset) {
-            return Builder(builder: (BuildContext context) {
+        body: Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          CarouselSlider(
+            height: size.height * .25,
+            initialPage: 0,
+            enlargeCenterPage: true,
+            autoPlay: true,
+            reverse: false,
+            enableInfiniteScroll: true,
+            autoPlayAnimationDuration: Duration(seconds: 2),
+            autoPlayInterval: Duration(seconds: 2),
+            scrollDirection: Axis.horizontal,
+            pauseAutoPlayOnTouch: Duration(seconds: 10),
+            onPageChanged: (index) {
+              setState(() {
+                _current = index;
+              });
+            },
+            items: imgList.map((imgAsset) {
+              return Builder(builder: (BuildContext context) {
+                return Container(
+                  width: size.width,
+                  margin: EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Image.asset(
+                    imgAsset,
+                    fit: BoxFit.fill,
+                  ),
+                );
+              });
+            }).toList(),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: map<Widget>(imgList, (index, url) {
               return Container(
-                width: size.width,
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
-                child: Image.asset(
-                  imgAsset,
-                  fit: BoxFit.fill,
-                ),
+                width: 10,
+                height: 10,
+                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+                decoration: BoxDecoration(
+                    color: _current == index ? Colors.orange : Colors.grey,
+                    shape: BoxShape.circle),
               );
-            });
-          }).toList(),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: map<Widget>(imgList, (index, url) {
-            return Container(
-              width: 10,
-              height: 10,
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
-              decoration: BoxDecoration(
-                  color: _current == index ? Colors.orange : Colors.grey,
-                  shape: BoxShape.circle),
-            );
-          }),
-        )
-      ],
+            }),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Expanded(
+            child: ListView(
+              children: [
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          title: Text('Portekiz'),
+                          trailing:
+                              Icon(Icons.location_on, color: Colors.orange),
+                          subtitle: Text('Porto, Lizbon, Coimbra'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          title: Text('Polonya'),
+                          trailing:
+                              Icon(Icons.location_on, color: Colors.orange),
+                          subtitle: Text('Lublin, Varşova, Krakow'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Card(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          title: Text('Portekiz'),
+                          trailing:
+                              Icon(Icons.location_on, color: Colors.orange),
+                          subtitle: Text('Porto, Lizbon, Coimbra'),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     ));
   }
 }
