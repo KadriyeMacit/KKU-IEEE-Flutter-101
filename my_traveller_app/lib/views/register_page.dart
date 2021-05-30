@@ -72,7 +72,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextField(
                         controller: nameController,
                         cursorColor: Colors.black,
-                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.person,

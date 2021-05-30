@@ -60,9 +60,12 @@ class _HomePageState extends State<HomePage> {
                 return Container(
                   width: size.width,
                   margin: EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Image.asset(
-                    imgAsset,
-                    fit: BoxFit.fill,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      imgAsset,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 );
               });

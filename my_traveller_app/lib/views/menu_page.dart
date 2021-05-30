@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_traveller_app/views/favorite_page.dart';
+import 'package:my_traveller_app/views/add_page.dart';
 import 'package:my_traveller_app/views/home_page.dart';
 import 'package:my_traveller_app/views/launch_page.dart';
 import 'package:my_traveller_app/views/profile_page.dart';
